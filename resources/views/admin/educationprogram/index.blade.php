@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header">Ngành</div>
+                    <div class="card-header">Quản lý chương trình đào tạo</div>
                     <div class="card-body">
                         <a href="{{route('educationprogram.create')}}" class="btn btn-primary btn-sm" title="Thêm mới ngành">
                             <i class="fa fa-plus" aria-hidden="true"></i> Thêm mới
@@ -25,16 +25,6 @@
                         <a href="{{route('subject.index')}}" class="btn btn-primary btn-sm" title="Quản lý môn học">
                            Quản lý môn học
                         </a>
-                        {!! Form::open(['method' => 'GET', 'url' => '/admin/major', 'class' => 'form-inline my-2 my-lg-0 float-right', 'role' => 'search'])  !!}
-                        <div class="input-group">
-                            <input type="text" class="form-control" name="search" placeholder="Tìm kiếm...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-secondary" type="submit" style="margin-bottom: 0px;">
-                                    <i class="fa fa-search" ></i>
-                                </button>
-                            </span>
-                        </div>
-                        {!! Form::close() !!}
                         <br/>
                         <br/>
                         <div class="table-responsive">
@@ -56,6 +46,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="pagination justify-content-center"> {!! $education->appends(['search' => Request::get('search')])->render() !!} </div>
                         </div>
                     </div>
                 </div>

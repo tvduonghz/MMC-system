@@ -107,7 +107,7 @@
                                 @foreach($student as $item)
                                     <tr>
                                         <th>{{$item->mmc_studentid}}</th>
-                                        <td>{{$item->mmc_fullname}}</td>
+                                        <td><a href="{{route('showStudent',['id'=>$item['id']])}}">{{$item->mmc_fullname}}</a></td>
                                         <td>{{$item->mmc_email}}</td>
                                         <td>{{$item->mmc_phone}}</td>
                                         <td>{{$item->pointdetail->mmc_4grade}}</td>

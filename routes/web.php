@@ -44,14 +44,13 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
         Route::get('/createstudent', 'Admin\mmc_ControllerStudent@getclass')->name('formcreateStudent');
         Route::post('/createstudent', 'Admin\mmc_ControllerStudent@create')->name('createStudent');
         Route::get('/delete/{id}', 'Admin\mmc_ControllerStudent@destroy')->name('destroyStudent');
-        Route::get('/showStudent/{id}', 'Admin\mmc_ControllerStudent@show')->name('showStudent');
         Route::get('/editStudent/{id}', 'Admin\mmc_ControllerStudent@edit')->name('editStudent');
         Route::post('/updateStudent/{id}', 'Admin\mmc_ControllerStudent@update')->name('updateStudent');
         Route::post('/importStudent', 'Admin\mmc_ControllerStudent@import')->name('importStudent');
         Route::get('/downloadfileExcel', 'Admin\mmc_ControllerStudent@downloadfileExcel')->name('downloadfileExcel');
         Route::get('/exportStudent', 'Admin\mmc_ControllerStudent@export')->name('exportStudent');
 
-        Route::post('/aajaxmajor', 'Admin\mmc_ControllerStudent@ajaxmajor')->name('aajaxmajor');
+        Route::post('/aajaxmajor', 'Admin\mmc_ControllerStudent@aajaxmajor')->name('aajaxmajor');
         Route::post('setstatus', 'Admin\mmc_ControllerStudent@setstatus')->name('setstatus');
 
 //        Route::post('/statusstudent', 'Admin\mmc_ControllerStudent@statusstudent')->name('statusstudent');
@@ -94,6 +93,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::post('/addpoint', 'Admin\studentpointController@pointstudent')->name('pointstudent');
     Route::post('/addpointtest', 'Admin\studentpointController@pointtest')->name('pointtest');
     Route::post('/ratio', 'Admin\studentpointController@editratio')->name('editratio');
+    Route::get('/showStudent/{id}', 'Admin\mmc_ControllerStudent@show')->name('showStudent');
 //     Route::get('/subjectclass', 'Admin\studentpointController@infoStudent')->name('infoStudent');
 //     Route::get('/subjectclass', 'Admin\studentpointController@infoStudent')->name('infoStudent');
     Route::post('ajax/education', 'Admin\AjaxController@getEducation')->name('ajax');

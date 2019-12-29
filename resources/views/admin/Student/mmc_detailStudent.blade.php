@@ -95,9 +95,6 @@
 									</div>
 								</div>
 							</div>
-<<<<<<< HEAD
-
-=======
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -137,7 +134,6 @@
                                     @endif
                                 </div>
                             </div>
->>>>>>> 9ebf5f8656a348f20c1c0344f8436ce209bb5cf6
 							<div class="col-md-12">
 								<div class="row">
 									<div class="col-md-12">

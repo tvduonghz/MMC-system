@@ -72,7 +72,7 @@ class MajorController extends Controller
         $major->g=$g;
         $major->b=$b;
         $major->save();
-        return redirect('admin/major');
+        return redirect('admin/major')->with('flash_message', 'Thêm mới thành công!');;
     }
 
     /**

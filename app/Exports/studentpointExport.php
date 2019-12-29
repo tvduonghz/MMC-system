@@ -2,7 +2,9 @@
 
 namespace App\Exports;
 
+use App\mmc_major;
 use App\mmc_student;
+use App\mmc_class;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
@@ -21,6 +23,7 @@ class studentpointExport implements FromView
      */
     public function view(): View
     {
+        $data_class=mmc_class::get();
         $classid= $this->requestall->malop;
         $majorid= $this->requestall->manghanh;
         $hocky= $this->requestall->hocky;
@@ -77,7 +80,33 @@ class studentpointExport implements FromView
                                 if (is_null($data)) {
                                     $data = mmc_student::where('id', '=', $key->id)->get();
                                 } else {
-                                    $data = $data->merge(mmc_student::where('id', '=', $key->id)->get());
+                                    $get= mmc_student::where('id', '=', $key->id)->get();
+                                    $data = $data->merge($get);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        elseif(empty($majorid) && empty($classid) && empty($hocky) && !empty($status)){
+            $major= mmc_major::get();
+            if (!is_null($major))
+            foreach ($major as $amajor){
+                $class = mmc_class::Where('mmc_major', '=', $amajor->mmc_majorid)->get();
+                if (!is_null($class)) {
+                    foreach ($class as $key) {
+                        $student = mmc_student::where('mmc_classid', '=', $key->mmc_classid)->get();
+                        if (!is_null($student)) {
+                            foreach ($student as $key) {
+                                $point = $key->pointdetail->mmc_4grade;
+                                if (tinhhocluc($point) === $status) {
+                                    if (is_null($data)) {
+                                        $data = mmc_student::where('id', '=', $key->id)->get();
+                                    } else {
+                                        $get= mmc_student::where('id', '=', $key->id)->get();
+                                        $data = $data->merge($get);
+                                    }
                                 }
                             }
                         }
@@ -113,7 +142,8 @@ class studentpointExport implements FromView
                         if (is_null($data)) {
                             $data = mmc_student::where('id', '=', $key->id)->latest();
                         } else {
-                            $data = $data->merge(mmc_student::where('id', '=', $key->id)->get());
+                            $get= mmc_student::where('id', '=', $key->id)->get();
+                            $data = $data->merge($get);
                         }
                     }
                 }
@@ -122,11 +152,10 @@ class studentpointExport implements FromView
         else{
             $data = mmc_student::get();
         }
-        dd($data);
-        return view('admin.Student.mmc_formExport', [
+        return view('admin.point.formExport', [
             'data' => $data,
-            'hocky' => $status,
-            'status' => $status,
+            'hocky' => $hocky,
+            'dataclass' => $data_class,
         ]);
     }
 }

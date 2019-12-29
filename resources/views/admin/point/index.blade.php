@@ -26,8 +26,8 @@
                     <div class="card-header">
                         <form class="form-inline" action="{{route('studentpoint')}}">
                             <div class="form-group mb-2">
-                                <label for="amajor">Ngành:&emsp;</label>
-                                <select class="form-control amajor" name="manghanh">
+                                <label for="aamajor">Ngành:&emsp;</label>
+                                <select class="form-control aamajor" name="manghanh">
                                     @if(isset($majorid))
                                         @foreach($data_major as $key)
                                             @if($majorid == $key->mmc_majorid)
@@ -44,8 +44,8 @@
                                 </select>
                             </div>
                             <div class="form-group mb-2">
-                                <label for="aclass">&emsp;Lớp:&emsp;</label>
-                                <select class="form-control aclass" name="malop" style="width: 200px;">
+                                <label for="aaclass">&emsp;Lớp:&emsp;</label>
+                                <select class="form-control aaclass" name="malop" style="width: 200px;">
                                     @if(isset($classid))
                                         @foreach($data_class as $key)
                                             @if($classid == $key->mmc_classid)
@@ -93,14 +93,13 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-{{--                                    <form action="{{route('exportPointstudent')}}">--}}
-                                    <form action="">
+                                    <form action="{{route('exportPointstudent')}}">
+{{--                                    <form action="">--}}
                                         <div class="modal-body">
                                             <div class="form-group mb-2">
-                                                <label for="amajor">Ngành:&emsp;</label>
-                                                <select class="form-control amajor" name="manghanh">
+                                                <label for="aamajor">Ngành:&emsp;</label>
+                                                <select class="form-control aamajor" name="manghanh">
                                                     @if(isset($majorid))
-                                                        <option value="">...</option>
                                                         @foreach($data_major as $key)
                                                             @if($majorid == $key->mmc_majorid)
                                                                 <option value="{{$key->mmc_majorid}}" selected>{{$key->mmc_majorname}}</option>
@@ -116,8 +115,8 @@
                                                 </select>
                                             </div>
                                             <div class="form-group mb-2">
-                                                <label for="aclass">&emsp;Lớp:&emsp;</label>
-                                                <select class="form-control aclass" name="malop">
+                                                <label for="aaclass">&emsp;Lớp:&emsp;</label>
+                                                <select class="form-control aaclass" name="malop">
                                                     @if(isset($classid))
                                                         @foreach($data_class as $key)
                                                             @if($classid == $key->mmc_classid)
@@ -131,7 +130,7 @@
                                                 </select>
                                             </div>
                                             <div class="form-group mb-2">
-                                                <label for="aclass">&emsp;Học kỳ:&emsp;</label>
+                                                <label>&emsp;Học kỳ:&emsp;</label>
                                                 <select class="form-control" name="hocky">
                                                     <option value="">...</option>
                                                     @foreach(semester() as $key)
@@ -140,7 +139,7 @@
                                                 </select>
                                             </div>
                                             <div class="form-group mb-1">
-                                                <label for="aclass">&emsp;Học lực:&emsp;</label>
+                                                <label>&emsp;Học lực:&emsp;</label>
                                                 <select class="form-control" name="status">
                                                     <option value="">...</option>
                                                     <option <?php if(isset($status) && $status == 'xs') echo 'selected';?> value="xs">Xuất sắc</option>
@@ -201,7 +200,7 @@
                                     <tr>
                                         <td>{{$i++}}</td>
                                         <td>{{$std->mmc_studentid}}</td>
-                                        <td>{{$std->mmc_fullname}}</td>
+                                        <td><a href="{{route('showStudent',['id'=>$std['id']])}}">{{$std->mmc_fullname}}</a></td>
                                         <td>{{$std->class->mmc_classname}}</td>
                                         <td>{{$std->pointdetail->mmc_4grade}}</td>
                                         <td>{{$std->pointdetail->mmc_10grade}}</td>
@@ -212,7 +211,7 @@
                                         <tr>
                                             <td>{{$i++}}</td>
                                             <td>{{$std->mmc_studentid}}</td>
-                                            <td>{{$std->mmc_fullname}}</td>
+                                            <td><a href="{{route('showStudent',['id'=>$std['id']])}}">{{$std->mmc_fullname}}</a></td>
                                             <td>{{$std->class->mmc_classname}}</td>
                                             <td>{{diemhockyhs4($std->mmc_studentid, $hocky)}}</td>
                                             <td>{{diemhockyhs10($std->mmc_studentid, $hocky)}}</td>
@@ -254,7 +253,7 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
-            $('.amajor').on('change', function () {
+            $('.aamajor').on('change', function () {
                 var selectVal = $(this).val();
                 console.log(selectVal);
                 $.ajax({
@@ -264,7 +263,7 @@
                         "_token": "{{ csrf_token() }}",
                         "id": selectVal},
                     success : function ( data ) {
-                        $('.aclass').html(data);
+                        $('.aaclass').html(data);
                     }
                 })
             });

@@ -647,7 +647,7 @@ class studentpointController extends Controller
                         'pointtest'=> $sheet[$i][5],
                         'mmc_note'=> $sheet[$i][8],
                     ];
-//                    $this->updatepointdetail($id, $sheet[$i][5]); // tính điếm và lưu diểm tổng kết vào bảng mmc_pointdetails
+                    $this->updatepointdetail($id, $sheet[$i][5]); // tính điếm và lưu diểm tổng kết vào bảng mmc_pointdetails
                     $j++;
                 }
             }
@@ -740,7 +740,7 @@ class studentpointController extends Controller
                 $point->save();
             }else{
                 $point= mmc_pointdetails::find($pointdetail[0]->id);
-                $point->mmc_10grade= $studentid;
+                $point->mmc_10grade= $diemtb;
                 $point->mmc_4grade= $hs4;
                 $point->update();
             }
