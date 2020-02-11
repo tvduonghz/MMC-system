@@ -19,7 +19,7 @@
     </a>
 </div>
 <div class="wrapper wrapper-content  animated fadeInRight blog">
-    					
+
     <div class="row ">
         <div class="col-lg-12">
             @if (count($errors)>0)
@@ -27,7 +27,7 @@
                     @foreach ($errors->all() as $err)
                         {{$err}}
                     @endforeach
-                </div> 
+                </div>
             @endif
 
             @if (session('thongbao'))
@@ -81,7 +81,7 @@
                                         <a class="nav-link" data-toggle="tab" href="#menu5">SỨC KHỎE</a>
                                     </li>
                                 </ul>
-                                
+
                                 <!-- Tab panes -->
                                 <div class="tab-content mt-3">
                                     <div class="tab-pane container active" id="home">
@@ -94,15 +94,15 @@
                                                     </div>
                                                     <input type="text" name="mmc_name" minlength="3" maxlength="50" class="form-control" required autocomplete="off" value="{{Auth::user()->mmc_name}}">
                                                 </div>
-                                                <div class="input-group mb-3 input-group-sm" hidden>
+                                                <div class="input-group mb-3 input-group-sm" >
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">Mã giảng viên: <b style="color:red;" >*</b></span>
                                                     </div>
                                                     <input type="text" name="mmc_employeeid" minlength="3" maxlength="50" class="form-control" required autocomplete="off" value="{{Auth::user()->mmc_employeeid}}">
                                                 </div>
-                                                <div class="input-group mb-3 input-group-sm" hidden>
+                                                <div class="input-group mb-3 input-group-sm " >
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text">Tên bộ môn: <b style="color:red;" >*</b></span> 
+                                                        <span class="input-group-text">Tên bộ môn: <b style="color:red;" >*</b></span>
                                                     </div>
                                                     <select class="form-control" id="sel1" name="mmc_deptid">
                                                         @foreach ($bomon as $bm)
@@ -110,7 +110,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="input-group mb-3 input-group-sm" hidden>
+                                                <div class="input-group mb-3 input-group-sm" >
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" >Chức vụ hiện tại: <b style="color:red;" >*</b></span>
                                                     </div>
@@ -161,9 +161,9 @@
                                                     </div>
                                                     <input type="text" name="mmc_socialinsuranceid" class="form-control" minlength="3" maxlength="15"  autocomplete="off" value="{{Auth::user()->mmc_socialinsuranceid}}">
                                                 </div>
-                                                
+
                                             </div>
-        
+
                                             <div class="col-md-6">
                                                 <div class="input-group mb-3 input-group-sm">
                                                     <div class="input-group-prepend">
@@ -213,13 +213,13 @@
                                                     </div>
                                                     <textarea class="form-control md-textarea" rows="2" name="mmc_address" minlength="3" placeholder="Số nhà, đường phố, thành phố, xóm, thôn, xã, huyện, tỉnh.." autocomplete="off" value="{{Auth::user()->mmc_address}}">{{Auth::user()->mmc_address}}</textarea>
                                                 </div>
-        
+
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="tab-pane container fade" id="menu1">
-                                        {{-- NGHỀ NGHIỆP --}} 
+                                        {{-- NGHỀ NGHIỆP --}}
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="input-group mb-3 input-group-sm">
@@ -228,23 +228,23 @@
                                                     </div>
                                                     <input type="date" name="mmc_dateofrecruit" class="form-control" data-format="dd/mm/yyyy" autocomplete="off" value="{{Auth::user()->mmc_dateofrecruit}}">
                                                 </div>
-                                                
+
                                             </div>
-        
+
                                             <div class="col-md-6">
                                                 <div class="input-group mb-3 input-group-sm">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">Công việc chính được giao: </span>
                                                     </div>
-                                                    
+
                                                     <textarea class="form-control md-textarea" rows="2" name="mmc_maintask" minlength="3" autocomplete="off" value="{{Auth::user()->mmc_maintask}}">{{Auth::user()->mmc_maintask}}</textarea>
                                                 </div>
-        
+
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane container fade" id="menu2">
-                                        {{-- LƯƠNG THƯỞNG --}} 
+                                        {{-- LƯƠNG THƯỞNG --}}
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="input-group mb-3 input-group-sm">
@@ -271,9 +271,9 @@
                                                     </div>
                                                     <input type="number" step="any" min="0" name="mmc_salaryratio" class="form-control" minlength="1" autocomplete="off" value="{{Auth::user()->mmc_salaryratio}}">
                                                 </div>
-                                                
+
                                             </div>
-        
+
                                             <div class="col-md-6">
                                                 <div class="input-group mb-3 input-group-sm">
                                                     <div class="input-group-prepend">
@@ -287,12 +287,12 @@
                                                     </div>
                                                     <input type="number" step="any" min="0" name="mmc_salaryother" class="form-control" minlength="1" autocomplete="off" value="{{Auth::user()->mmc_salaryother}}">
                                                 </div>
-        
+
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane container fade" id="menu3">
-                                        {{-- TRÌNH ĐỘ HỌC VẤN --}}       
+                                        {{-- TRÌNH ĐỘ HỌC VẤN --}}
                                         <div class="row">
                                             <div class="col-md-6">
                                                     <div class="input-group mb-3 input-group-sm">
@@ -313,7 +313,7 @@
                                                         </div>
                                                         <textarea class="form-control md-textarea" rows="2" name="mmc_itlevel" minlength="1" placeholder="Trình độ A, B, C,......" autocomplete="off" value="{{Auth::user()->mmc_itlevel}}">{{Auth::user()->mmc_itlevel}}</textarea>
                                                     </div>
-                                                
+
                                             </div>
 
                                             <div class="col-md-6">
@@ -334,7 +334,7 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane container fade" id="menu4">
-                                        {{-- ĐẢNG --}}       
+                                        {{-- ĐẢNG --}}
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="input-group mb-3 input-group-sm">
@@ -349,7 +349,7 @@
                                                     </div>
                                                     <input type="date" name="mmc_partydateprimary" class="form-control" data-format="dd/mm/yyyy" autocomplete="off" value="{{Auth::user()->mmc_partydateprimary}}">
                                                 </div>
-                                                
+
                                             </div>
 
                                             <div class="col-md-6">
@@ -370,7 +370,7 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane container fade" id="menu5">
-                                        {{-- SỨC KHỎE --}} 
+                                        {{-- SỨC KHỎE --}}
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="input-group mb-3 input-group-sm">
@@ -385,7 +385,7 @@
                                                     </div>
                                                     <input type="text" name="mmc_bloodgroup" class="form-control" minlength="1" placeholder="O, A, B" autocomplete="off" value="{{Auth::user()->mmc_bloodgroup}}">
                                                 </div>
-                                                
+
                                             </div>
 
                                             <div class="col-md-6">

@@ -17,8 +17,8 @@ class CreateMmcEmployeesTable extends Migration
 
             $table->bigIncrements('id');
 
-            $table->string('mmc_name'); //Họ và tên
-            $table->string('mmc_employeeid')->unique(); //Mã giảng viên
+            $table->string('mmc_name')->nullable(); //Họ và tên
+            $table->string('mmc_employeeid')->unique()->nullable(); //Mã giảng viên
             $table->string('mmc_deptid')->nullable();  //Mã bộ môn
             $table->string('mmc_avatar')->nullable(); //Ảnh đại diện
             $table->date('mmc_dateofbirth')->nullable(); //Ngày tháng và năm sinh

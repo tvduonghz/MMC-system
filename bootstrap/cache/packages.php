@@ -1,4 +1,11 @@
 <?php return array (
+  'ckfinder/ckfinder-laravel-package' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'CKSource\\CKFinderBridge\\CKFinderServiceProvider',
+    ),
+  ),
   'facade/ignition' => 
   array (
     'providers' => 

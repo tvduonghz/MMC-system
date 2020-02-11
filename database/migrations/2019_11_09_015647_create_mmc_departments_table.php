@@ -15,8 +15,8 @@ class CreateMmcDepartmentsTable extends Migration
     {
         Schema::create('mmc_departments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('mmc_deptid')->unique();
-            $table->string('mmc_deptname');
+            $table->string('mmc_deptid')->unique()->nullable();
+            $table->string('mmc_deptname')->nullable();
             $table->string('mmc_description')->nullable();
             $table->timestamps();
         });

@@ -87,6 +87,9 @@
                 <li>
                     <a href="{{route('scienceemployee.index')}}"><i class="fa fa-book"></i> <span class="nav-label">Hoạt động khoa học công nghệ</span>  </a>
                 </li>
+                <li>
+                    <a href="{{route('ckfinder_browser')}}"><i class="glyphicon glyphicon-hdd"></i> <span class="nav-label">File manager</span>  </a>
+                </li>
             </ul>
 
         </div>
